@@ -20,9 +20,13 @@ bot.on('message', function (event) {
     break
     case'壞人':
     event.reply('別生氣了')
+    break
     case'開心':
     event.reply('恭喜你,希望你過得好')
     break
+    default:
+      event.reply('(放空中)')
+      break
   }
 });
 
