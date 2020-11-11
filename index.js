@@ -11,7 +11,7 @@ let bot = linebot({
 bot.on('message', function (event) {
   // 回覆訊息給使用者 (一問一答所以是回覆不是推送)
   console.log(`${event.message.text}`);
-  switch(event.message.test){
+  switch(event.message.text){
     case'hello':
     event.reply('你上線了')
     break
