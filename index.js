@@ -13,16 +13,16 @@ bot.on('message', function (event) {
   console.log(`${event.message.text}`);
   switch(event.message.test){
     case'hello':
-    event.reply('你上線了');
+    event.reply('你上線了')
     break
     case'問':
-    event.reply('有啥問題');
+    event.reply('有啥問題')
     break
-case'壞人':
-event.reply('別生氣了');
-case'開心':
-event.reply('恭喜你,希望你過得好');
-break
+    case'壞人':
+    event.reply('別生氣了')
+    case'開心':
+    event.reply('恭喜你,希望你過得好')
+    break
   }
 });
 
