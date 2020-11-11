@@ -22,6 +22,7 @@ case'壞人':
 event.reply('別生氣了');
 case'開心':
 event.reply('恭喜你,希望你過得好');
+break
   }
 });
 
