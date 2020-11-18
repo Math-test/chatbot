@@ -32,7 +32,7 @@ bot.on('message', function (event) {
 //主動發送訊息
 setTimeout(function(){
     var userId = '漾嵐';
-    var sendMsg = '你過的好嗎?';
+    var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
     console.log('send: '+sendMsg);
 },5000);
