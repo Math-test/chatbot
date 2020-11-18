@@ -29,18 +29,6 @@ let bot = linebot({
 //       break
 //   }
 // });
-bot.on('message', function(event) {
-  if (event.message.type = 'text') {
-    var msg = event.message.text;
-    event.reply(msg).then(function(data) {
-      // success 
-      console.log(msg);
-    }).catch(function(error) {
-      // error 
-      console.log('error');
-    });
-  }
-});
 //主動發送訊息
 setTimeout(function(){
     var userId = '漾嵐';
