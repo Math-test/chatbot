@@ -31,7 +31,7 @@ let bot = linebot({
 // });
 //主動發送訊息
 setTimeout(function(){
-    var userId = '漾嵐';
+    var userId = '124';
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
     bot.on('message', function (event) {
