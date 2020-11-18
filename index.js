@@ -34,7 +34,7 @@ setTimeout(function(){
     var userId = '漾嵐';
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
-    bot.$(userID).on('message', function (event) {
+    bot.on('message', function (event) {
       event.require(sendMsg);
       
     });
