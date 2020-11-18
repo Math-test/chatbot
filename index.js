@@ -34,7 +34,6 @@ setTimeout(function(){
     var userId = '漾嵐';
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
-    bot.on(userId,sendMsg);
     console.log('send: '+sendMsg);
 },5000);
 // Bot 所監聽的 webhook 路徑與 port，heroku 會動態存取 port 所以不能用固定的 port，沒有的話用預設的 port 5000
