@@ -35,7 +35,7 @@ setTimeout(function(){
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
     bot.on('message', function (event) {
-      event.require(sendMsg);
+      event.reply(sendMsg);
       
     });
     console.log('send: '+sendMsg);
