@@ -40,15 +40,15 @@ setTimeout(function(){
     });
     console.log('send: '+sendMsg);
 },5000);
-function handleEvent(event) {
-  if (event.replyToken === '00000000000000000000000000000000' || event.replyToken === 'ffffffffffffffffffffffffffffffff') {
-    return Promise.resolve(null);
-  }
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
-    return Promise.resolve(null);
-  }
-  console.log(`使用者 ID: ${event.source.userId}`);
+// function handleEvent(event) {
+//   if (event.replyToken === '00000000000000000000000000000000' || event.replyToken === 'ffffffffffffffffffffffffffffffff') {
+//     return Promise.resolve(null);
+//   }
+//   if (event.type !== 'message' || event.message.type !== 'text') {
+//     // ignore non-text-message event
+//     return Promise.resolve(null);
+//   }
+//   console.log(`使用者 ID: ${event.source.userId}`);
 
 // Bot 所監聽的 webhook 路徑與 port，heroku 會動態存取 port 所以不能用固定的 port，沒有的話用預設的 port 5000
 bot.listen('/', process.env.PORT || 5000, function () {
