@@ -51,6 +51,71 @@ setTimeout(function(){
 //   console.log(`使用者 ID: ${event.source.userId}`);
 
 // Bot 所監聽的 webhook 路徑與 port，heroku 會動態存取 port 所以不能用固定的 port，沒有的話用預設的 port 5000
+function doPost(e) {
+  var urlReply = 'https://api.line.me/v2/bot/message/reply';
+  var urlPush = 'https://api.line.me/v2/bot/message/push';
+  var myGroup = 'XXXXXXX';         // push 訊息到這個 ID
+  var send_message = 'doPost message';
+  var strSourceType = "";
+  var strNewRoomID = "";
+  var strNewGroupID = "";
+  var strNewUserID = "";
+  
+  var recieveData= JSON.parse(e.postData.contents);
+  if (recieveData.events[0].type == "join")
+  {
+    if ( recieveData.events[0].source.type == "room" )
+    {
+      strSourceType = "room";
+      strNewRoomID = recieveData.events[0].source.roomId;
+      strNewUserID = recieveData.events[0].source.userId;
+    }
+    else if ( recieveData.events[0].source.type == "group" )
+    {
+      strSourceType = "group";
+      strNewGroupID = recieveData.events[0].source.groupId;
+      strNewUserID = recieveData.events[0].source.userId;
+    }
+    else if ( recieveData.events[0].source.type == "user" )
+    {
+      strSourceType = "user";
+      strNewUserID = recieveData.events[0].source.userId;
+    }
+    
+    send_message = "SourceType:" + strSourceType;
+    send_message = send_message + " RoomID:" + strNewRoomID;
+    send_message = send_message + " GroupID:" + strNewGroupID;
+    send_message = send_message + " UserID:" + strNewUserID;
+    UrlFetchApp.fetch(urlPush, {
+      'headers': {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN,
+      },
+      'method': 'post',
+      'payload': JSON.stringify({
+        'to': myGroup,
+        'messages': [{
+          'type': 'text',
+          'text': send_message,
+        }],
+      }),
+    });
+  }
+}
+UrlFetchApp.fetch(urlReply, {
+      'headers': {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN,
+      },
+      'method': 'post',
+      'payload': JSON.stringify({
+        'messages': [{
+          'type': 'text',
+          'text': send_message,
+        }],
+      }),
+    });
+    
 bot.listen('/', process.env.PORT || 5000, function () {
   console.log('機器人上線啦！');
 });
