@@ -102,19 +102,19 @@ function doPost(e) {
     });
   }
 }
-UrlFetchApp.fetch(urlReply, {
-      'headers': {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN,
-      },
-      'method': 'post',
-      'payload': JSON.stringify({
-        'messages': [{
-          'type': 'text',
-          'text': send_message,
-        }],
-      }),
-    });
+// UrlFetchApp.fetch(urlReply, {
+//       'headers': {
+//         'Content-Type': 'application/json; charset=UTF-8',
+//         'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN,
+//       },
+//       'method': 'post',
+//       'payload': JSON.stringify({
+//         'messages': [{
+//           'type': 'text',
+//           'text': send_message,
+//         }],
+//       }),
+//     });
     
 bot.listen('/', process.env.PORT || 5000, function () {
   console.log('機器人上線啦！');
