@@ -42,17 +42,17 @@ setTimeout(function(){
 },5000);
 // const line = require('@line/bot-sdk');
 
-const client = new line.Client({
-  channelAccessToken: '<channel access token>'
-});
+// const client = new line.Client({
+//   channelAccessToken: '<channel access token>'
+// });
 
-client.getGroupMemberIds('<groupId>')
-  .then((ids) => {
-    ids.forEach((id) => console.log(id));
-  })
-  .catch((err) => {
-    // error handling
-  });
+// client.getGroupMemberIds('<groupId>')
+//   .then((ids) => {
+//     ids.forEach((id) => console.log(id));
+//   })
+//   .catch((err) => {
+//     // error handling
+//   });
 // function handleEvent(event) {
 //   if (event.replyToken === '00000000000000000000000000000000' || event.replyToken === 'ffffffffffffffffffffffffffffffff') {
 //     return Promise.resolve(null);
