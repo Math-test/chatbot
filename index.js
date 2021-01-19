@@ -8,10 +8,35 @@ let bot = linebot({
 });
 
 // 當有人傳送訊息給 Bot 時
-bot.on('message', function (event) {
-  // 回覆訊息給使用者 (一問一答所以是回覆不是推送)
-  console.log(`${event.message.text}`);
-  switch(event.message.text){
+// bot.on('message', function (event) {
+//   // 回覆訊息給使用者 (一問一答所以是回覆不是推送)
+//   console.log(`${event.message.text}`);
+//   switch(event.message.text){
+//     case'hello':
+//     event.reply('你上線了')
+//     break
+//     case'問':
+//     event.reply('有啥問題')
+//     break
+//     case'壞人':
+//     event.reply('別生氣了')
+//     break
+//     case'開心':
+//     event.reply('恭喜你,希望你過得好')
+//     break
+//     default:
+//       event.reply('(放空中)')
+//       break
+//   }
+// });
+主動發送訊息
+setTimeout(function(){
+    var userId = '124';
+    var sendMsg = '學生到班囉';
+    bot.push(userId,sendMsg);
+    bot.on('message', function (event) {
+      event.reply(sendMsg);
+      switch(event.message.text){
     case'hello':
     event.reply('你上線了')
     break
@@ -28,14 +53,6 @@ bot.on('message', function (event) {
       event.reply('(放空中)')
       break
   }
-});
-主動發送訊息
-setTimeout(function(){
-    var userId = '124';
-    var sendMsg = '學生到班囉';
-    bot.push(userId,sendMsg);
-    bot.on('message', function (event) {
-      event.reply(sendMsg);
       
     });
     console.log('send: '+sendMsg);
