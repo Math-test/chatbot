@@ -35,7 +35,6 @@ setTimeout(function(){
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
     bot.on('message', function (event) {
-      event.reply(sendMsg);
       switch(event.message.text){
     case'hello':
     event.reply('你上線了')
@@ -52,7 +51,7 @@ setTimeout(function(){
     default:
       event.reply('(放空中)')
       break
-  }
+  } event.reply(sendMsg);
       
     });
     console.log('send: '+sendMsg);
