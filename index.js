@@ -36,7 +36,23 @@ setTimeout(function(){
     bot.push(userId,sendMsg);
     bot.on('message', function (event) {
       event.reply(sendMsg);
-      
+     switch(event.message.text){
+    case'hello':
+    event.reply('你上線了')
+    break
+    case'問':
+    event.reply('有啥問題')
+    break
+    case'壞人':
+    event.reply('別生氣了')
+    break
+    case'開心':
+    event.reply('恭喜你,希望你過得好')
+    break
+    default:
+      event.reply('(放空中)')
+      break
+  } 
     });
     console.log('send: '+sendMsg);
 },5000);
