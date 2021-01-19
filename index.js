@@ -35,7 +35,6 @@ setTimeout(function(){
     var sendMsg = '學生到班囉';
     bot.push(userId,sendMsg);
     bot.on('message', function (event) {
-      event.reply(sendMsg);
      switch(event.message.text){
     case'hello':
     event.reply('你上線了')
@@ -50,6 +49,7 @@ setTimeout(function(){
     event.reply('恭喜你,希望你過得好')
     break
     default:
+       event.reply(sendMsg);
       event.reply('(放空中)')
       break
   } 
