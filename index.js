@@ -29,7 +29,7 @@ let bot = linebot({
 //       break
 //   }
 // });
-主動發送訊息
+// 主動發送訊息
 setTimeout(function(){
     var userId = '124';
     var sendMsg = '學生到班囉';
