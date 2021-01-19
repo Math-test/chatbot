@@ -39,7 +39,7 @@ setTimeout(function(){
       
     });
     console.log('send: '+sendMsg);
-},5000);
+  }
 // const line = require('@line/bot-sdk');
 
 // const client = new line.Client({
