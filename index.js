@@ -7,7 +7,7 @@ let bot = linebot({
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN
 });
 
-當有人傳送訊息給 Bot 時
+// 當有人傳送訊息給 Bot 時
 bot.on('message', function (event) {
   // 回覆訊息給使用者 (一問一答所以是回覆不是推送)
   console.log(`${event.message.text}`);
@@ -40,7 +40,7 @@ setTimeout(function(){
     });
     console.log('send: '+sendMsg);
 },5000);
-// const line = require('@line/bot-sdk');
+const line = require('@line/bot-sdk');
 
 const client = new line.Client({
   channelAccessToken: '<channel access token>'
